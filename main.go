@@ -3,6 +3,7 @@ package main
 import (
 	"io"
 	"log"
+	"math/rand"
 	"net"
 	"time"
 
@@ -74,5 +75,18 @@ func main() {
 func checkError(err error, resp string) {
 	if err != nil {
 		log.Fatal(resp, err)
+	}
+}
+
+func getRandomCommand() string {
+	num := rand.Intn(3)
+
+	switch num {
+	case 1:
+		return "Restart"
+	case 2:
+		return "Shut Down"
+	default:
+		return "Start Up"
 	}
 }
